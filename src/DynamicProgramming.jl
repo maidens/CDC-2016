@@ -99,7 +99,6 @@ function dp_loop(n, f::Function, phi::Function, ugrid::FloatRange{Float64}, xgri
         end
     elseif n == 2
         for t = N-1:-1:1
-            println(t)
             V = interpolate(xgrid, J[:, :, t+1], Gridded(Linear()))
 
             @sync @parallel for i = 1:length(xgrid[1])
